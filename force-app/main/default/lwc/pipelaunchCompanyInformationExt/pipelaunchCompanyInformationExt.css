@@ -1,0 +1,17 @@
+.logo {
+    height: var(--lwc-squareIconUtilitySmall, 1rem);
+}
+
+.searching_text_info {
+    margin-top: 6rem;
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9050;
+}
+
+.loading-container {
+	padding-bottom: 8rem;
+}

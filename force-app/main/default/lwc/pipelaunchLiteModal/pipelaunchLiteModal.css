@@ -1,0 +1,26 @@
+.custom-slds-modal__content-overflow {
+	overflow: initial;
+}
+
+.custom-slds-modal__header-hidden {
+	border: 0;
+	padding: 0.25rem;
+}
+
+.custom-slds-modal__footer-hidden {
+	padding: 0.25rem;
+	background-color: white;
+	border: 0;
+}
+
+.custom-slds-modal__container {
+	/* width: max-content; */
+	width: fit-content;
+	block-size: fit-content;
+	max-width: 99vw;
+}
+
+/* .custom-slds-modal__content-height {
+    max-height: calc(100vh - 80px);
+    overflow-y: scroll;
+} */

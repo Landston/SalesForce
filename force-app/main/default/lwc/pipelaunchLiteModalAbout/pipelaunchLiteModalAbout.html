@@ -1,0 +1,107 @@
+<template>
+    <c-pipelaunch-lite-modal data-selector="1" onclosemodal={handleCloseModal}>
+        <div if:false={showDiagnostics} class="slds-var-p-top_large slds-var-p-left_large slds-var-p-right_large slds-text-align_center">
+            <div class="logo-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1462.5 284.1">
+                    <path
+                        d="M255,8.1h-77.3c-6.2,0-11.3,5-11.3,11.3v78.8h78.8c6.2,0,11.3,5,11.3,11.3v78.8c50.2,0,90.8-41.1,90-91.5    C345.7,47.2,304.3,8.1,255,8.1"
+                        fill="#4b98d3"></path>
+                    <path d="M245.2 98.1h-78.8v90h90v-78.8c.1-6.1-5-11.2-11.2-11.2" fill="#3dc0f0"></path>
+                    <g fill="#69cce3">
+                        <path d="M8.9,98.1l48.7,84.4c2,3.5,5.7,5.6,9.7,5.6h99.1v-90H8.9z"></path>
+                        <path d="M166.4 188.1v31.5c0 4 2.1 7.7 5.6 9.7l84.4 48.7v-90h-90z"></path>
+                    </g>
+                    <path
+                        d="M454.4 72.8h-57.3v140.7h29.5v-48h27.7c32.1 0 51.6-17.7 51.6-46.4.1-28.6-19.4-46.3-51.5-46.3m-2 64.7h-25.7v-36.8h25.7c15.7 0 23.1 6.8 23.1 18.3 0 11.7-7.5 18.5-23.1 18.5M533 71.2c-8 0-14.1 6.3-14.1 13.8 0 7.8 6.2 14 14.1 14 7.6 0 14-6.2 14-14 0-7.5-6.4-13.8-14-13.8m-14.1 39H547v103.3h-28.1zm310.8-37.4h-29.5v140.7h94.4v-28.2h-64.9zM974.8 117c-7.6-6-17.3-9.2-27.7-9.2-28.1 0-51 22.5-51 54.1 0 31.3 22.9 54.1 51 54.1 10.4 0 20.1-3.2 27.7-9.2v6.8h28.1V110.2h-28.1v6.8zm0 62.3c-6.2 7.2-14.7 10.6-23.3 10.6-15.5 0-26.9-11.1-26.9-28.1 0-17.1 11.5-28.1 26.9-28.1 8.6 0 17.1 3.4 23.3 10.4v35.2zm113.3-.2c-6.4 7.4-14.5 10.9-22.3 10.9-11.9 0-18.7-7.6-18.7-22.9v-56.9H1019v62.9c0 27.3 15.5 42.8 39 42.8 11.3 0 21.7-3.4 30.1-10v7.6h28.1V110.2h-28.1v68.9zm102.3-71.3c-11.1 0-21.7 3.4-30.1 10.2v-7.8h-28.1v103.3h28.1v-68.9c6.6-7.4 14.7-10.9 22.5-10.9 12.1 0 19.5 7.8 19.5 23.7v56.1h28.1v-62.1c0-28-16.3-43.6-40-43.6m221.6 0c-11.1 0-21.7 3.4-30.1 10.2V65.2h-28.1v148.3h28.1v-68.9c6.6-7.4 14.7-10.9 22.5-10.9 12.1 0 19.5 7.8 19.5 23.7v56.1h28.1v-62.1c0-28-16.3-43.6-40-43.6M784.9 159c0-31.7-21.5-51.2-51.6-51.2-33 0-55.9 22.9-55.9 54.9 0 31.3 21.9 53.2 56.1 53.2 20.1 0 36.6-7.4 48.2-22.1l-21.8-12.6h0c-7.7 7.8-16.3 10.8-26 10.8-15.9 0-26.1-7.8-28.5-22.9h79c.3-3.5.5-6.7.5-10.1zm-78.4-9.8c3.8-11.9 13.1-18.1 26.3-18.1 12.7 0 21.3 5.8 23.9 18.1h-50.2zm615.5 28.9c-6.6 7.8-15 11.9-24.1 11.9-14.9 0-26.7-10.8-26.7-28.1 0-16.7 11.3-28.1 26.3-28.1 9 0 17.3 4.2 24.5 13.7l21.7-17.3c-10.4-14.3-26.9-22.3-46-22.3-30.9 0-55.3 22.3-55.3 54.5 0 31.7 23.5 53.6 54.7 53.6 20.1 0 37.6-9 47.6-24.7l-22.7-13.2zm-702.9-70.3c-10.4 0-20.3 3.2-27.9 9.4v-7h-28.1v92.3 20.2.7 3.1 7.5 3.1c0 4 2.1 7.7 5.6 9.7l22.5 13v-3.1-30.2-3.1-.7-16.2c7.6 6.2 17.5 9.4 27.9 9.4.8 0 1.7 0 2.5-.1.3 0 .6 0 .8-.1.5 0 1.1-.1 1.6-.1.3 0 .7-.1 1-.1.5-.1 1-.1 1.4-.2s.7-.1 1.1-.2.9-.2 1.3-.2c.4-.1.7-.2 1.1-.2l1.2-.3c.4-.1.8-.2 1.1-.3l1.2-.3c.4-.1.8-.2 1.2-.4.4-.1.7-.3 1.1-.4s.8-.3 1.2-.4.7-.3 1-.4c.4-.2.8-.3 1.2-.5a4.67 4.67 0 0 0 1-.5l1.2-.6c.3-.2.6-.3.9-.5.4-.2.8-.4 1.2-.7.3-.2.5-.3.8-.5.4-.2.8-.5 1.3-.8.2-.1.4-.3.7-.4.4-.3.9-.6 1.3-.9.1-.1.2-.2.4-.3 1.8-1.3 3.4-2.6 5-4.1 10.3-9.7 16.9-23.9 16.9-40.7.2-31.4-22.7-53.9-50.7-53.9zm-4.6 82.2c-8.8 0-17.1-3.6-23.3-10.8v-34.8c6.2-7 14.5-10.6 23.3-10.6 15.7 0 26.9 11.1 26.9 28.1S630.2 190 614.5 190z"
+                        fill="#0c2631"></path>
+                </svg>
+            </div>
+
+            <div class="slds-var-m-top_large">
+                <a href="https://www.pipelaunch.com" target="_blank" rel="noopener noreferrer">www.pipelaunch.com</a>
+            </div>
+            <div class="slds-var-m-top_small">
+                <a href="mailto:hello@pipelaunch.com">hello@pipelaunch.com</a>
+            </div>
+
+            <div class="slds-grid slds-grid_align-space slds-var-m-top_x-large social-container">
+                <a href="https://www.linkedin.com/company/pipelaunch" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg width="24px" height="24px" role="img" viewBox="0 0 24 24" fill="currentColor" color="#7a7a7a"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>LinkedIn</title>
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+                        </path>
+                    </svg>
+                </a>
+
+                <a href="https://www.crunchbase.com/organization/pipelaunch" title="Crunchbase" target="_blank" rel="noopener noreferrer">
+                    <svg width="24px" height="24px" role="img" viewBox="0 0 24 24" fill="currentColor" color="#7a7a7a"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Crunchbase</title>
+                        <path
+                            d="M21.6 0H2.4A2.41 2.41 0 0 0 0 2.4v19.2A2.41 2.41 0 0 0 2.4 24h19.2a2.41 2.41 0 0 0 2.4-2.4V2.4A2.41 2.41 0 0 0 21.6 0zM7.045 14.465A2.11 2.11 0 0 0 9.84 13.42h1.66a3.69 3.69 0 1 1 0-1.75H9.84a2.11 2.11 0 1 0-2.795 2.795zm11.345.845a3.55 3.55 0 0 1-1.06.63 3.68 3.68 0 0 1-3.39-.38v.38h-1.51V5.37h1.5v4.11a3.74 3.74 0 0 1 1.8-.63H16a3.67 3.67 0 0 1 2.39 6.46zm-.223-2.766a2.104 2.104 0 1 1-4.207 0 2.104 2.104 0 0 1 4.207 0z">
+                        </path>
+                    </svg>
+                </a>
+
+                <a href="https://twitter.com/getPipeLaunch" title="Twitter" target="_blank" rel="noopener noreferrer">
+                    <svg width="24px" height="24px" role="img" viewBox="0 0 24 24" fill="currentColor" color="#7a7a7a"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Twitter</title>
+                        <path
+                            d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z">
+                        </path>
+                    </svg>
+                </a>
+
+                <a href="https://www.facebook.com/getPipeLaunch" title="Facebook" target="_blank" rel="noopener noreferrer">
+                    <svg width="24px" height="24px" role="img" viewBox="0 0 24 24" fill="currentColor" color="#7a7a7a"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Facebook</title>
+                        <path
+                            d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z">
+                        </path>
+                    </svg>
+                </a>
+
+                <!-- <a href="https://github.com/pipelaunch" title="GitHub" target="_blank" rel="noopener noreferrer">
+                    <svg width="24px" height="24px" role="img" viewBox="0 0 24 24" fill="currentColor" color="#7a7a7a"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>GitHub</title>
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12">
+                        </path>
+                    </svg>
+                </a> -->
+
+                <!-- <a href="#" title="Medium" target="_blank" rel="noopener noreferrer">
+                    <svg width="24px" height="24px" role="img" viewBox="0 0 24 24" fill="currentColor" color="#7a7a7a"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Medium</title>
+                        <path
+                            d="M0 0v24h24V0H0zm19.938 5.686L18.651 6.92a.376.376 0 0 0-.143.362v9.067a.376.376 0 0 0 .143.361l1.257 1.234v.271h-6.322v-.27l1.302-1.265c.128-.128.128-.165.128-.36V8.99l-3.62 9.195h-.49L6.69 8.99v6.163a.85.85 0 0 0 .233.707l1.694 2.054v.271H3.815v-.27L5.51 15.86a.82.82 0 0 0 .218-.707V8.027a.624.624 0 0 0-.203-.527L4.019 5.686v-.27h4.674l3.613 7.923 3.176-7.924h4.456v.271z">
+                        </path>
+                    </svg>
+                </a> -->
+
+            </div>
+
+            <div class="slds-grid slds-grid_align-spread slds-var-m-top_large slds-grid_vertical-align-center">
+                <lightning-button variant="base" label="Diagnostics" title="Run diagnostics"
+                    onclick={handleClickRunDiagnostics}></lightning-button>
+                <span class="slds-text-body_small slds-text-color_weak">version {version}</span>
+            </div>
+        </div>
+
+        <div if:true={showDiagnostics} class="diagnostics-container slds-scrollable_y">
+            <!-- <c-pipelaunch-diagnostics ignore-sales-engagement-check></c-pipelaunch-diagnostics> -->
+
+            <div class="slds-var-p-left_large slds-var-p-right_large slds-grid slds-grid_align-spread slds-var-m-top_medium slds-grid_vertical-align-center">
+                <lightning-button variant="base" label="Close Diagnostics" title="Close diagnostics"
+                    onclick={handleClickRunDiagnostics}></lightning-button>
+                <span class="slds-text-body_small slds-text-color_weak">version {version}</span>
+            </div>
+        </div>
+    </c-pipelaunch-lite-modal>
+</template>

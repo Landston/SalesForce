@@ -1,0 +1,129 @@
+<template>
+	<section class="container slds-var-p-horizontal_medium">
+		<label class="slds-form-element__label" for="name">
+			Name
+		</label>
+		<div id="name" class="slds-form-element_horizontal slds-text-heading_small">{details.CompanyName}</div>
+
+		<template if:true={details.CompanySecondaryName}>
+			<label class="slds-form-element__label" for="secundarycompanyName">
+				Company Secondary Name
+			</label>
+			<div id="secundarycompanyName" class="slds-form-element_horizontal">{details.CompanySecondaryName}</div>
+		</template>
+
+		<label class="slds-form-element__label" for="HitHorizonsId">
+			HitHorizons Id
+		</label>
+		<div id="HitHorizonsId" class="slds-form-element_horizontal">
+			<a href={details.HitHorizonsCompanyProfileURL} target="_blank"
+				rel="noopener noreferrer">{details.HitHorizonsId}</a>
+		</div>
+
+		<template if:true={details.NationalId}>
+			<label class="slds-form-element__label" for="TaxNumber">
+				Tax Number
+			</label>
+			<div id="TaxNumber" class="slds-form-element_horizontal">{details.NationalId}</div>
+		</template>
+
+		<template if:true={details.Industry}>
+			<label class="slds-form-element__label" for="Industry">
+				Industry
+			</label>
+			<div id="Industry" class="slds-form-element_horizontal">{computeIndustryClassificationLabel}</div>
+		</template>
+
+		<template if:true={details.SICCode}>
+			<label class="slds-form-element__label" for="SICCode">
+				SIC Code
+			</label>
+			<div id="SICCode" class="slds-form-element_horizontal"><span
+					if:true={details.SICText}>{details.SICText}&nbsp;</span>
+				({details.SICCode})</div>
+		</template>
+
+		<template if:true={details.DUNSNumber}>
+			<label class="slds-form-element__label" for="DUNSNumber">
+				D-U-N-S® Number
+			</label>
+			<div id="DUNSNumber" class="slds-form-element_horizontal">{details.DUNSNumber}</div>
+		</template>
+
+		<template if:true={details.EstablishmentOfOwnership}>
+			<label class="slds-form-element__label" for="EstablishmentOfOwnership">
+				Est. of Ownership
+			</label>
+			<div id="EstablishmentOfOwnership" class="slds-form-element_horizontal">{details.EstablishmentOfOwnership}
+			</div>
+		</template>
+
+		<template if:true={details.Website}>
+			<label class="slds-form-element__label" for="Website">
+				Website
+			</label>
+			<div id="Website" class="slds-form-element_horizontal">
+				<a href={details.Website} target="_blank" rel="noopener noreferrer">
+					{details.Website}
+				</a>
+			</div>
+		</template>
+
+		<label class="slds-form-element__label" for="EstimatedSales">
+			Estimated Sales
+		</label>
+		<div id="EstimatedSales" class="slds-form-element_horizontal">
+			<template if:true={settings.showExactFigures}>
+				<lightning-formatted-number if:true={_displayInEuros} value={details.SalesEUR} format-style="currency"
+					currency-code="EUR" maximum-fraction-digits=0>
+				</lightning-formatted-number>
+				<lightning-formatted-number if:false={_displayInEuros} value={details.SalesUSD} format-style="currency"
+					currency-code="USD" maximum-fraction-digits=0>
+				</lightning-formatted-number>
+			</template>
+			<template if:false={settings.showExactFigures}>
+				<c-utility-abbreviate-number if:true={_displayInEuros} value={details.SalesEUR}
+					title={details.SalesEUR}>
+				</c-utility-abbreviate-number>
+				<c-utility-abbreviate-number if:false={_displayInEuros} value={details.SalesUSD}
+					title={details.SalesUSD}>
+				</c-utility-abbreviate-number>
+			</template>
+		</div>
+
+		<template if:true={details.EmployeesNumber}>
+			<label class="slds-form-element__label" for="EstimatedEmployees">
+				Estimated Employees
+			</label>
+			<div id="EstimatedEmployees" class="slds-form-element_horizontal">
+				<template if:true={settings.showExactFigures}>{details.EmployeesNumber}</template>
+				<template if:false={settings.showExactFigures}><span
+						title={details.EmployeesNumber}>{computeNumberOfEmployeesRange}</span></template>
+			</div>
+		</template>
+
+		<label class="slds-form-element__label" for="Address">
+			Address
+		</label>
+		<div id="Address" class="slds-form-element_horizontal">
+			<lightning-formatted-address street={computeStreetAddress} city={details.City} country={details.Country}
+				postal-code={details.PostalCode} show-static-map={settings.showMap}>
+			</lightning-formatted-address>
+		</div>
+	</section>
+
+
+
+	<!-- <section class="container slds-var-p-horizontal_medium">
+
+            <label for="f01" class={computeLabelClasses}>
+                HitHorizons Id
+            </label>
+            <div id="f01" class={computeFormClasses}>
+				<a href={details.HitHorizonsCompanyProfileURL} target="_blank" rel="noopener noreferrer">{details.HitHorizonsId}</a>
+			</div>
+
+	</section> -->
+
+
+</template>

@@ -1,0 +1,19 @@
+.logo-container {
+    width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-container {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a > svg:hover {
+    fill: #444444;
+}
+
+.diagnostics-container {
+    max-height: 80vh;
+}

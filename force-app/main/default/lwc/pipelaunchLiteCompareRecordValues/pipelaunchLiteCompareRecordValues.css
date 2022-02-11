@@ -1,0 +1,30 @@
+.custom-picker {
+	/* flex-grow: 1;
+	min-width: 50%;
+	max-width: 50%; */
+	min-width: 19rem;
+	max-width: 19rem;
+}
+
+.custom-picker-text-content {
+	min-height: 2.3rem;
+}
+
+/* small screens 768px  */
+@media (max-width: 48em) {
+	.custom-picker-text-content {
+		min-width: 3rem;
+	}
+	.custom-picker {
+		width: 5rem;
+	}
+}
+
+.description-controls-container {
+	min-height: var(--sds-c-textarea-sizing-min-height, 5rem);
+	max-width: 39rem;
+}
+
+/* :host {
+	--sds-c-textarea-sizing-min-height: 5rem;
+} */

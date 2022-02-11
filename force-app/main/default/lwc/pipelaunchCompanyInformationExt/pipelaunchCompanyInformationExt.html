@@ -1,0 +1,196 @@
+<template>
+	<c-pipelaunch-lite-unlicensed-card if:true={unlicensed}></c-pipelaunch-lite-unlicensed-card>
+
+	<lightning-card if:false={unlicensed} variant="narrow">
+		<div if:false={hideCardTitle} slot="title" class="slds-media slds-media_center slds-has-flexi-truncate">
+			<div class="slds-media__figure">
+				<c-pipelaunch-lite-pipelaunch-logomark size="small" title="PipeLaunch">
+				</c-pipelaunch-lite-pipelaunch-logomark>
+			</div>
+			<h2 class="slds-card__header-title">
+				<span class="slds-text-heading_small slds-truncate">Company Info (Preview)</span>
+			</h2>
+		</div>
+
+		<div slot="actions">
+			<lightning-button-menu alternative-text="Show menu" menu-alignment="right" onselect={handleMenuSelect}>
+				<lightning-menu-item prefix-icon-name="utility:search" value="MenuItemManualSearch"
+					label="Manual Search">
+				</lightning-menu-item>
+				<lightning-menu-item checked={settings.showMap} value="MenuItemShowMap" label="Show Map">
+				</lightning-menu-item>
+				<lightning-menu-item checked={settings.showExactFigures} value="MenuItemShowExactFigures"
+					label="Show Exact figures">
+				</lightning-menu-item>
+				<lightning-menu-item prefix-icon-name="utility:info" value="MenuItemAbout" label={labels.ABOUT}>
+				</lightning-menu-item>
+			</lightning-button-menu>
+		</div>
+
+		<div if:true={view.searchCompany} class="slds-var-m-horizontal_medium">
+			<p class="slds-var-m-bottom_small">
+				<lightning-formatted-rich-text value={computeResumeSearchResultsLabel} disable-linkify>
+				</lightning-formatted-rich-text>
+			</p>
+			<ul>
+				<template for:each={searchResults.displayItems} for:item="item">
+					<li key={item.HitHorizonsId} class="slds-var-m-bottom_x-small">
+						<c-pipelaunch-company-information-ext-card-item details={item} data-id={item.HitHorizonsId}
+							onclick={handleCompanyClick}>
+						</c-pipelaunch-company-information-ext-card-item>
+					</li>
+				</template>
+			</ul>
+
+			<div if:true={computeShowMoreResults} class="slds-align_absolute-center">
+				<lightning-button variant="base" label={labels.SHOW_MORE} title={labels.SHOW_MORE}
+					onclick={handleClickShowMoreResults}>
+				</lightning-button>
+			</div>
+		</div>
+
+		<template if:false={status.errors}>
+			<template if:false={status.isLoading}>
+				<template if:true={view.companyInfo}>
+					<section class="slds-var-p-left_medium slds-var-p-right_medium slds-var-p-bottom_xxx-small">
+						<div if:true={status.showMatchBanner}
+							class="slds-scoped-notification slds-media slds-media_center slds-scoped-notification_light slds-var-m-bottom_x-small"
+							role="status">
+							<div class="slds-media__figure">
+								<lightning-icon size="small" icon-name="utility:info" alternative-text="information">
+								</lightning-icon>
+							</div>
+							<div class="slds-media__body">
+								<div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+									<p>Please match this company with HitHorizons Database</p>
+									<lightning-button variant="brand" label="Match" title="Match"
+										class="slds-var-m-left_small" onclick={handleClickButtonMatch}>
+									</lightning-button>
+								</div>
+							</div>
+						</div>
+
+						<!-- banner on top to update data when there's a difference -->
+						<div if:true={status.showSaveBanner}
+							class="slds-scoped-notification slds-media slds-media_center slds-scoped-notification_light slds-var-m-bottom_x-small"
+							role="status">
+							<div class="slds-media__figure">
+								<lightning-icon size="small" icon-name="utility:info" alternative-text="information">
+								</lightning-icon>
+							</div>
+							<div class="slds-media__body">
+								<div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+									<p>Enrich your Salesforce data with HitHorizons Database</p>
+									<lightning-button variant="brand" label="Update" title="Update"
+										class="slds-var-m-left_small" onclick={handleClickButtonUpdate}>
+									</lightning-button>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<c-pipelaunch-company-information-ext-data details={companyInformation} settings={settings}
+						flexipage-region-width={flexipageRegionWidth}>
+					</c-pipelaunch-company-information-ext-data>
+				</template>
+
+				<c-pipelaunch-company-information-ext-no-results if:true={view.notFoundMessage}
+					company-name={status.searchCompanyName} onmanualsearch={handleGoToManualSearch}>
+				</c-pipelaunch-company-information-ext-no-results>
+
+				<c-pipelaunch-company-information-ext-manual-search if:true={view.manualSearch}
+					onsearchchange={handleSearchChange} details={manualSearchPayload}>
+				</c-pipelaunch-company-information-ext-manual-search>
+
+				<c-pipelaunch-company-information-ext-unlicensed if:true={view.notLicensed}>
+				</c-pipelaunch-company-information-ext-unlicensed>
+			</template>
+		</template>
+
+		<section if:true={status.isLoading} class="loading-container">
+			<lightning-spinner alternative-text="Loading" variant="base" size="medium"></lightning-spinner>
+
+			<div if:true={computeSearchingLabel}
+				class="slds-text-body_small slds-align_absolute-center searching_text_info">
+				<lightning-formatted-rich-text value={computeSearchingLabel} disable-linkify>
+				</lightning-formatted-rich-text>
+			</div>
+		</section>
+
+		<section if:true={status.errors} class="slds-var-p-left_small slds-var-p-right_small slds-var-p-bottom_small">
+			<c-pipelaunch-lite-error-panel friendly-message={labels.ERROR_GENERIC_FRIENDLY_MESSAGE}
+				type={status.errorType} no-results-found-body="No results" errors={status.errors}>
+			</c-pipelaunch-lite-error-panel>
+		</section>
+
+
+		<!-- footer -->
+		<div slot="footer" class="slds-grid">
+			<div class="slds-col slds-size_1-of-2 slds-grid">
+				<lightning-button if:true={computeShowButtonNotRightCompany} variant="base"
+					label="Not the right company?" title="Not the right company?"
+					onclick={handleClickButtonNotRightCompany}></lightning-button>
+
+				<lightning-button if:true={computeShowButtonBackManualSearch} variant="base"
+					label={computeShowButtonBackManualSearchLabel} onclick={handleClickButtonCancel}></lightning-button>
+
+				<!--
+
+				<lightning-button if:true={computeShowButtonBackToComponyInfo} variant="base"
+					label={computeShowButtonBackManualSearchLabel} title={computeShowButtonBackManualSearchLabel}
+					onclick={handleClickButtonReturnToComponyInfo}></lightning-button>
+-->
+
+			</div>
+			<div class="slds-col slds-size_1-of-2 slds-grid slds-grid_align-end">
+				<span class="slds-float_right slds-var-p-top_xx-small">
+					<span
+						class="slds-text-color_weak slds-text-body_small slds-var-p-right_x-small slds-var-p-top_xxx-small">Powered
+						by</span>
+
+					<a href="https://www.hithorizons.com/" target="_blank" rel="noopener noreferrer">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 539.1 64.03" class="logo">
+							<path d="M196.28,7.19v64h-12v-64Z" transform="translate(-20.38 -7.19)"></path>
+							<path d="M517.4,14.73V64.05H505.86L483,33.49V64H471.36V14.78H483l22.77,30.51V14.73Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path
+								d="M264.24,14.88c10.16,0,20-.51,29.68.15,8.49.57,14.36,6.21,15.88,13.42,1.61,7.68-1.58,14.23-9.25,19-.4.25-.75.56-1.39,1L309,63.91H295.51l-9.46-14.19H275.63V64H264.24ZM275.7,38.76c5.72,0,11,.25,16.26-.08,3.64-.24,6.15-2.35,6.31-6.31s-1.95-6.44-5.72-6.71c-5.52-.38-11.07-.09-16.85-.09Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path
+								d="M229.8,65.44a26.29,26.29,0,0,1-26.36-25.92c-.06-14.24,12.25-26.34,26.7-26.24s26.26,11.9,26.28,26.08A26.12,26.12,0,0,1,229.8,65.44Zm14.68-25.8c.1-8.81-6.11-15.53-14.42-15.6s-14.79,6.85-14.74,15.41,6.16,15.08,14.29,15.22C238.13,54.81,244.38,48.49,244.48,39.64Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path
+								d="M406.9,14.71V25.49L380.48,53.43h27.1V64H365.23V53.34c8.37-8.84,17-17.91,26.48-28H366V14.71Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path d="M331.8,25.13H317.67V14.76h39.6V25H344.1V53.54h13.25V64H317.58V53.7H331.8Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path
+								d="M442,23.82V13.74c14.32,1.39,24.22,12.67,23.8,26.84C465.43,53.8,454.39,64.82,441,65.39c-14.6.62-25.89-8.9-27.63-23.54h11.21c4.13,10.17,8.93,13.72,17,12.72,6-.74,11.15-5.85,12.22-12C455.29,34.06,451.66,28.25,442,23.82Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path d="M152.81,18.29h11.08V64H152.81Z" transform="translate(-20.38 -7.19)"></path>
+							<path
+								d="M424.89,37H413.52c.84-12.61,10.37-22.06,23.4-23.13V24C430.57,25.69,426.16,30,424.89,37Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path d="M179.8,50.29H168.75v-18H179.8Z" transform="translate(-20.38 -7.19)"></path>
+							<path d="M67.09,14.06V16.8H80.36V61.21H67.09V64H97.38V61.21H83.67V16.8H97.38V14.06Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path d="M55.26,14.06V37.89H23.07V14.06H20.38V64.23h2.69V41H55.26V64.23H58V14.06Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path d="M105.76,14.06v2.69h16.88V64.26h2.7V16.75h16.88V14.06Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path
+								d="M558.83,47.47s0,0,0,0c-.12-.43-.25-.86-.41-1.28h-.06A14.1,14.1,0,0,0,556.47,43a24.48,24.48,0,0,0-8.15-6.41l-6.77-3.49a11.25,11.25,0,0,1-3.47-2.68,4.84,4.84,0,0,1-1.21-3.13,4.51,4.51,0,0,1,1.72-3.82,7.79,7.79,0,0,1,4.83-1.32,10.38,10.38,0,0,1,4.75,1.25,20.5,20.5,0,0,1,4.9,3.57l6.41-7.36a22.34,22.34,0,0,0-7.34-4.69,23.82,23.82,0,0,0-8.76-1.62q-7.92,0-12.25,3.6t-4.34,10.14a13.69,13.69,0,0,0,2.93,8.49A22.61,22.61,0,0,0,538,42l7.19,3.48a10.14,10.14,0,0,1,1.47.84A8.77,8.77,0,0,1,548,47.63a4.87,4.87,0,0,1,1.21,3.14,4.52,4.52,0,0,1-1.72,3.82,7.79,7.79,0,0,1-4.83,1.32,10.5,10.5,0,0,1-4.75-1.25,20.55,20.55,0,0,1-4.9-3.58l-6.41,7.37A22.32,22.32,0,0,0,534,63.13a23.82,23.82,0,0,0,8.76,1.62q7.92,0,12.25-3.59T559.3,51a13.86,13.86,0,0,0-.47-3.54Z"
+								transform="translate(-20.38 -7.19)"></path>
+							<path d="M525.52,62v-.59l-.07.56Z" transform="translate(-20.38 -7.19)"></path>
+						</svg>
+					</a>
+				</span>
+			</div>
+		</div>
+	</lightning-card>
+
+	<c-pipelaunch-lite-modal-update-record label-width=135 source-text="HitHorizons data">
+	</c-pipelaunch-lite-modal-update-record>
+
+	<!-- <c-pipelaunch-lite-modal-about></c-pipelaunch-lite-modal-about> -->
+</template>

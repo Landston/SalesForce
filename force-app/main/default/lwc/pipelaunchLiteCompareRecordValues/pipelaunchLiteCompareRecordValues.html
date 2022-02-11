@@ -1,0 +1,106 @@
+<template>
+	<section if:true={showComponent} class="slds-grid slds-var-m-bottom_medium" style="flex-wrap: wrap;">
+		<div if:true={label} class={computeLabelClasses} style={computeLabelStyle}>
+			<span class="slds-text-title_bold slds-truncate">{label}</span>
+		</div>
+
+		<div if:false={isDescription} class="slds-grid slds-grow slds-var-m-right_medium">
+			<div class="slds-visual-picker custom-picker">
+				<input type="radio" id="visual-picker-original" value="original" name={computeName}
+					checked={originalChecked} />
+				<label for="visual-picker-original">
+					<span class="
+							slds-visual-picker__figure slds-visual-picker__text
+							slds-align-middle
+							slds-var-p-left_x-small
+							slds-var-p-right_small
+							slds-var-p-vertical_x-small
+							custom-picker-text-content
+						">
+						<span if:true={isText} class="slds-truncate slds-text-align_left" title={originalValue}>
+							{originalValue} </span>
+						<span if:true={isLink} class="slds-text-align_left slds-truncate slds-var-m-right_large"
+							title={newValue}>
+							<a href={originalValue} target="_blank" rel="noopener noreferrer">{originalValue}</a>
+						</span>
+						<span if:true={isCurrency} class="slds-text-align_left slds-truncate slds-var-m-right_large"
+							title={originalValue}>
+							<lightning-formatted-number value={originalValue} format-style="currency" maximum-fraction-digits=0></lightning-formatted-number>
+						</span>
+						<span if:true={isAvatar}>
+							<lightning-avatar size="large" variant="circle" src={originalValue} title={originalValue}
+								fallback-icon-name="standard:contact" alternative-text={originalValue}>
+							</lightning-avatar>
+						</span>
+					</span>
+					<span class="slds-visual-picker__text-check">
+						<lightning-icon variant="inverse" size="x-small" icon-name="utility:check"
+							alternative-text="Check"></lightning-icon>
+					</span>
+				</label>
+			</div>
+
+			<div class="slds-visual-picker custom-picker">
+				<input type="radio" id="visual-picker-new" value="new" name={computeName} checked={newChecked} />
+				<label for="visual-picker-new">
+					<span class="
+							slds-visual-picker__figure slds-visual-picker__text
+							slds-align-middle
+							slds-var-p-left_x-small
+							slds-var-p-right_small
+							slds-var-p-vertical_x-small
+							custom-picker-text-content
+						">
+						<span if:true={isText} class="slds-truncate slds-text-align_left" title={newValue}> {newValue}
+						</span>
+						<span if:true={isLink} class="slds-text-align_left slds-truncate slds-var-m-right_large"
+							title={newValue}>
+							<a href={newValue} target="_blank" rel="noopener noreferrer">{newValue}</a>
+						</span>
+						<span if:true={isCurrency} class="slds-text-align_left slds-truncate slds-var-m-right_large"
+							title={newValue}>
+							<lightning-formatted-number value={newValue} format-style="currency"></lightning-formatted-number>
+						</span>
+						<span if:true={isAvatar}>
+							<lightning-avatar size="large" variant="circle" src={newValue} title={newValue}
+								fallback-icon-name="standard:contact" alternative-text={newValue}></lightning-avatar>
+						</span>
+					</span>
+					<span class="slds-visual-picker__text-check">
+						<lightning-icon variant="inverse" size="x-small" icon-name="utility:check"
+							alternative-text="Check"></lightning-icon>
+					</span>
+				</label>
+			</div>
+		</div>
+
+		<div if:true={isDescription} class="slds-grid slds-grid_vertical slds-grow">
+			<div>
+				<lightning-radio-group variant="label-hidden" label="Radio Group" options={radioDescriptionOptions}
+				value={radioDescriptionValue} type="button" onchange={handleChangeRadioDescription}
+				class="slds-var-m-bottom_xx-small"></lightning-radio-group>
+			</div>
+			<div class="description-controls-container">
+				<lightning-formatted-rich-text  if:true={isKeepExisting} class="slds-text-color_weak slds-text-title" value={originalValue}>
+				</lightning-formatted-rich-text>
+
+				<template if:true={isAddToExisting}>
+					<template if:true={originalValue}>
+						<lightning-formatted-rich-text class="slds-text-color_weak slds-text-title" value={originalValue}></lightning-formatted-rich-text>
+						<br />------------<br />
+					</template>
+					<lightning-formatted-rich-text class="slds-text-color_weak slds-text-title" value={newValue}></lightning-formatted-rich-text>
+				</template>
+
+				<!-- <lightning-textarea if:true={isAddToExisting} value={computeAppendDescriptionValue} label="Description" max-length="32000"
+					variant="label-hidden"></lightning-textarea> -->
+
+				<!-- <lightning-formatted-rich-text if:true={isReplaceExisting} value={newValue}></lightning-formatted-rich-text> -->
+				<lightning-textarea if:true={isReplaceExisting} value={newValue} label="Description" max-length="32000"
+					variant="label-hidden" onchange={handleDescriptionChange}></lightning-textarea>
+			</div>
+			
+
+		</div>
+	</section>
+</template>

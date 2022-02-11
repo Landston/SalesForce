@@ -1,0 +1,26 @@
+.header-labels-container {
+	margin-left: 135px;
+}
+.header-labels-container > span:nth-child(1) {
+	flex: 1;
+}
+.header-labels-container > span:nth-child(2) {
+	flex: 1;
+}
+
+.loading-container lightning-spinner {
+	background: transparent;
+}
+
+.main-container {
+	min-width: 50rem;
+
+}
+
+/* small screens 768px  */
+@media (max-width: 48em) {
+	.main-container {
+		min-width: auto;
+
+	}
+}

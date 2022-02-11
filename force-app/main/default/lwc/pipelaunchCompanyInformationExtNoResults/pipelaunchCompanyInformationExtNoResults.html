@@ -1,0 +1,28 @@
+<template>
+	<section class="slds-var-p-bottom_x-small slds-var-p-horizontal_large slds-var-p-top_small">
+		<div class="slds-grid slds-grid_vertical-align-center">
+			<lightning-icon icon-name="utility:info_alt" alternative-text="Info" size="medium" title="Info">
+			</lightning-icon>
+			<h1 class="slds-text-heading_medium slds-var-m-left_small">
+				<lightning-formatted-rich-text value={computeHeaderText} disable-linkify>
+				</lightning-formatted-rich-text>
+			</h1>
+		</div>
+
+		<ul class="slds-var-p-left_medium slds-text-color_weak slds-var-m-top_medium slds-list_dotted">
+			<li>
+				<h3 class="slds-text-heading_small">Make sure the Account name matches the Legal name of the company.</h3>
+				<p class="slds-text-body_small slds-var-p-top_xx-small">Eg. Coca-Cola is a big corporation with multiple subsidiaries, try to be more specific i.e. Coca-Cola Europacific Partners plc.</p>
+			</li>
+			<li class="slds-var-p-top_small">
+				<h3 class="slds-text-heading_small">Some company names are very generic and are shared by other companies</h3>
+				<p class="slds-text-body_small slds-var-p-top_xx-small">Eg. Innovation, Technology or Sky are common names. Try using the legal entities which usually includes LTD, Incorporated or GmbH</p>
+			</li>
+		</ul>
+
+		<div class="slds-align_absolute-center slds-var-m-top_large">
+			<lightning-button icon-name="utility:search" variant="brand" label="Manual Search" title="Manual Search"
+				onclick={handleClickManualSearchButton}></lightning-button>
+		</div>
+	</section>
+</template>

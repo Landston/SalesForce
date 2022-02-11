@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+	<labels>
+		<fullName>ABOUT</fullName>
+		<categories>menus</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>About</shortDescription>
+		<value>About</value>
+	</labels>
+	<labels>
+		<fullName>REFRESH</fullName>
+		<categories>menus</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Refresh</shortDescription>
+		<value>Refresh</value>
+	</labels>
+	<labels>
+		<fullName>ADD</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Add</shortDescription>
+		<value>Add</value>
+	</labels>
+	<labels>
+		<fullName>ADD_NEWS_ARTICLE</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Add news article</shortDescription>
+		<value>Add this article to the activity history (new task)</value>
+	</labels>
+	<labels>
+		<fullName>CANCEL</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Cancel</shortDescription>
+		<value>Cancel</value>
+	</labels>
+	<labels>
+		<fullName>CANCELING</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Canceling</shortDescription>
+		<value>Canceling...</value>
+	</labels>
+	<labels>
+		<fullName>DUPLICATE_VALUE</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Duplicate value</shortDescription>
+		<value>Duplicate value</value>
+	</labels>
+	<labels>
+		<fullName>INVALID_DOMAIN</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Invalid domain</shortDescription>
+		<value>Invalid domain name. Enter a domain in format example.com</value>
+	</labels>
+	<labels>
+		<fullName>NEWS_SOURCES_HELP</fullName>
+		<categories>helptext</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>News Sources help Text</shortDescription>
+		<value>Enter the domains of a website that is likely to have information about the account or company name e.g. &lt;em&gt;crunchbase.com&lt;/em&gt;. &lt;br /&gt;PipeLaunch will only display information on the websites you have selected and the first items of the list will have higher priority</value>
+	</labels>
+	<labels>
+		<fullName>RELEVANT_JOB_OPENINGS</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Relevant Job Openings</shortDescription>
+		<value>Relevant Job Openings</value>
+	</labels>
+	<labels>
+		<fullName>RELEVANT_JOB_TITLES</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Relevant Job Titles</shortDescription>
+		<value>Relevant Job Titles</value>
+	</labels>
+	<labels>
+		<fullName>RELEVANT_JOB_TITLES_HELP</fullName>
+		<categories>helptext</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Relevant Job Titles help Text</shortDescription>
+		<value>Pick the job titles of the LinkedIn profiles you would like to have displayed. Please note that 2 letter job titles like HR or PR might not provide the best results. Try adding e.g. &lt;em&gt;HR director&lt;/em&gt;</value>
+	</labels>
+	<labels>
+		<fullName>SAVE</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Save</shortDescription>
+		<value>Save</value>
+	</labels>
+	<labels>
+		<fullName>SETTINGS</fullName>
+		<categories>menus</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Settings</shortDescription>
+		<value>Settings</value>
+	</labels>
+	<labels>
+		<fullName>SETTINGS_SAVED</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Settings saved</shortDescription>
+		<value>Settings saved</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_JOB_OPENINGS</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No job openings found</shortDescription>
+		<value>PipeLaunch couldn`t find any job openings for this company name. Check if the company has any job posting on LinkedIn and try with different job titles.</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_JOBS_HEADER</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No company jobs found title</shortDescription>
+		<value>No good matches</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_NEWS</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No company news found</shortDescription>
+		<value>No news to be displayed. This could be because you didn’t add enough news sources in the settings or the company does not have any public news under the selected sources. To update news sources click on settings and add the domain to the list.</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_NEWS_HEADER</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No news to be displayed</shortDescription>
+		<value>No good matches</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_COMPANY_INSIGHTS_HEADER</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No company insights to be displayed</shortDescription>
+		<value>Company insights not found</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_CONTACT_INFO_HEADER</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No contact info to be displayed</shortDescription>
+		<value>Contact not found on social media</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_RELATED_CONTACTS</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No related contacts found</shortDescription>
+		<value>Oops PipeLaunch couldn`t find any related contacts for this Company Name. Try different job titles.</value>
+	</labels>
+	<labels>
+		<fullName>ERROR_GENERIC_FRIENDLY_MESSAGE</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Generic Friendly Error Message</shortDescription>
+		<value>Oops! Something went wrong. Please try again or contact the system administrator</value>
+	</labels>
+	<labels>
+		<fullName>ERROR_NO_LICENSE</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No License Error</shortDescription>
+		<value>PipeLaunch isn`t licensed for the current environment. Contact PipeLaunch support at hello@pipelaunch.com</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_CONTACT_INFO</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No contact info found</shortDescription>
+		<value>Make sure the name on LinkedIn or Xing (if the Xing option is enabled) matches the name in Salesforce. Note that some contacts doesn`t have social network profiles.</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_COMPANY_INFO</fullName>
+		<categories>errors</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>No company info found</shortDescription>
+		<value>Make sure the name of the company on the web matches the name in Salesforce.</value>
+	</labels>
+	<labels>
+		<fullName>SHOW_MORE</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Show more...</shortDescription>
+		<value>Show more...</value>
+	</labels>
+	<labels>
+		<fullName>SHOW_LESS</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Show less...</shortDescription>
+		<value>Show less...</value>
+	</labels>
+	<labels>
+		<fullName>WARNING_NO_WEBSITE_ASSOCIATED</fullName>
+		<categories>scoped_notifications</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>This account/company doesn't have a website associated</shortDescription>
+		<value>This account/company doesn't have a website associated. Add a website so that PipeLaunch can provide you with even more information.</value>
+	</labels>
+	<labels>
+		<fullName>SEARCH</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Search</shortDescription>
+		<value>Search</value>
+	</labels>
+	<labels>
+		<fullName>NEW_CONTACT</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>New Contact</shortDescription>
+		<value>New Contact</value>
+	</labels>
+	<labels>
+		<fullName>NEW_LEAD</fullName>
+		<categories>actions</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>New Lead</shortDescription>
+		<value>New Lead</value>
+	</labels>
+	<labels>
+		<fullName>ALL_TITLES</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>All titles</shortDescription>
+		<value>&lt;strong&gt;All&lt;/strong&gt; of these titles</value>
+	</labels>
+	<labels>
+		<fullName>ANY_TITLES</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Any titles</shortDescription>
+		<value>&lt;strong&gt;Any&lt;/strong&gt; of these titles</value>
+	</labels>
+	<labels>
+		<fullName>SELECT_REGION</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Select Region</shortDescription>
+		<value>Select Region</value>
+	</labels>
+	<labels>
+		<fullName>NEWS_ANY_OF_THESE_WEBSITES</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Search on any of these websites</shortDescription>
+		<value>Search on &lt;strong&gt;any&lt;/strong&gt; of these websites</value>
+	</labels>
+	<labels>
+		<fullName>EMAIL_LEGAL_DISCLAIMER</fullName>
+		<categories>email_suggestion</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Email legal disclaimer</shortDescription>
+		<value>Please note that PipeLaunch is suggesting this email address based on the email patterns of the existing contacts.&lt;br /&gt; &lt;strong&gt;N.B.&lt;/strong&gt; under GDPR you need previous consent before contacting a prospect via email.</value>
+	</labels>
+	<labels>
+		<fullName>ADD_TO_EXISTING</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Add to existing</shortDescription>
+		<value>Add to existing</value>
+	</labels>
+	<labels>
+		<fullName>KEEP_EXISTING</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Keep existing</shortDescription>
+		<value>Keep existing</value>
+	</labels>
+	<labels>
+		<fullName>REPLACE_EXISTING</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Replace existing</shortDescription>
+		<value>Replace existing</value>
+	</labels>
+	<labels>
+		<fullName>SEARCHING_FOR_COMPANY</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Searching for X company</shortDescription>
+		<value>Searching for &lt;strong&gt;{{COMPANY_NAME}}&lt;/strong&gt; information...</value>
+	</labels>
+	<labels>
+		<fullName>FOUND_X_RESULTS_FOR_COMPANY_SELECT</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Found X results for X company select the right one</shortDescription>
+		<value>Found {{NUMBER_RESULTS}} result(s) for &lt;strong&gt;{{COMPANY_NAME}}&lt;/strong&gt;, please select the right company</value>
+	</labels>
+	<labels>
+		<fullName>GETTING_RECORD_DATA</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Getting record data</shortDescription>
+		<value>Getting record data...</value>
+	</labels>
+	<labels>
+		<fullName>TROUBLE_FINDIND_X_SOME_TIPS</fullName>
+		<categories>general</categories>
+		<language>en_US</language>
+		<protected>true</protected>
+		<shortDescription>Trouble finding X? Where's some tips</shortDescription>
+		<value>Trouble finding &lt;strong&gt;{{COMPANY_NAME}}&lt;/strong&gt;? Where's some tips</value>
+	</labels>
+</CustomLabels>

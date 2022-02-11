@@ -1,0 +1,50 @@
+<template>
+	<c-pipelaunch-lite-modal if:true={status.showModal} modal-header={modalHeader} data-selector="1"
+		onclosemodal={handleCloseModal} visible>
+		<div if:true={status.isLoading} class="loading-container">
+			<lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+		</div>
+
+		<div class="main-container">
+			<!-- content -->
+			<div if:true={status.showCompareHeaderTitle} class="slds-var-m-top_small slds-grid header-labels-container slds-text-title_bold">
+				<span class="slds-grid">
+					<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+						class="slds-button_icon-small hover-filter" viewBox="0 0 64 64">
+						<path
+							d="M26.62 14.492c2.068-2.142 4.95-3.497 8.126-3.497 4.235 0 7.905 2.364 9.875 5.86 1.7-.763 3.595-1.182 5.6-1.182 7.634 0 13.8 6.23 13.8 13.913S57.82 43.5 50.2 43.5a13.84 13.84 0 0 1-2.709-.271c-1.724 3.078-5.023 5.17-8.816 5.17-1.576 0-3.078-.37-4.408-1-1.748 4.112-5.836 7.018-10.59 7.018a11.5 11.5 0 0 1-10.8-7.535 10.85 10.85 0 0 1-2.192.222C4.777 47.095 0 42.27 0 36.285a10.82 10.82 0 0 1 5.344-9.357c-.665-1.502-1.034-3.177-1.034-4.95C4.285 15.157 9.875 9.59 16.72 9.59a12.41 12.41 0 0 1 9.899 4.9"
+							fill="#00a1e0">
+						</path>
+					</svg>
+
+					<span class="slds-var-p-left_x-small">Salesforce</span>
+				</span>
+				<span class="slds-grid">
+					<c-pipelaunch-lite-pipelaunch-logomark size="small" title="PipeLaunch">
+					</c-pipelaunch-lite-pipelaunch-logomark>
+
+					<span class="slds-var-p-left_x-small">{sourceText}</span>
+				</span>
+			</div>
+			<section class="slds-var-p-around_small">
+				<template if:true={fieldsData} for:each={fieldsData.fields} for:item="field" for:index="index">
+					<c-pipelaunch-lite-compare-record-values key={field.apiName} label-width={labelWidth}
+						label={field.label} api-name={field.apiName} mode={field.mode}
+						original-value={field.originalValue} new-value={field.newValue} hide-equal-values>
+					</c-pipelaunch-lite-compare-record-values>
+				</template>
+			</section>
+		</div>
+
+
+		<div slot="footerContent">
+			<lightning-button variant="neutral" class="slds-var-m-top_small slds-var-m-right_small"
+				label={labels.CANCEL} title={labels.CANCEL} onclick={handleCloseModal}>
+			</lightning-button>
+			<lightning-button variant="brand" class="slds-var-m-top_small" title={labels.SAVE} label={labels.SAVE}
+				disabled={status.isLoading} onclick={handleClickSave}>
+			</lightning-button>
+		</div>
+
+	</c-pipelaunch-lite-modal>
+</template>

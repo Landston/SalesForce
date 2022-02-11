@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YearStarted__c</fullName>
+    <description>The date when an org was legally established. Maximum length is 4 characters. This field is available on business accounts, not person accounts.</description>
+    <externalId>false</externalId>
+    <label>Year Started</label>
+    <length>4</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
